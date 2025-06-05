@@ -1,0 +1,6 @@
+application:
+  port: 8080
+jwt:
+  secret: "This is sample jwt secret."
+hash:
+  secret: "This is sample hash secret."

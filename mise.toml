@@ -1,0 +1,24 @@
+[env]
+_.file = '.env'
+
+[tasks.flywayInfo]
+description = """
+ローカル環境のデータベースに向けて Flyway の適用状況を取得する。
+データベースの起動は Docker compose や直接ローカル起動するなどを行っておく。
+"""
+env.FLYWAY_URL = "jdbc:postgresql://localhost:5432/taskaround"
+env.FLYWAY_USER = "flyway_user"
+env.FLYWAY_PASSWORD = "password"
+run = "./gradlew :db:taskaround:flyway:flywayInfo"
+run_windows = "gradlew.bat :db:taskaround:flyway:flywayInfo"
+
+[tasks.flywayMigrate]
+description = """
+ローカル環境のデータベースに向けてマイグレーションする。
+データベースの起動は Docker compose や直接ローカル起動するなどを行っておく。
+"""
+env.FLYWAY_URL = "jdbc:postgresql://localhost:5432/taskaround"
+env.FLYWAY_USER = "flyway_user"
+env.FLYWAY_PASSWORD = "password"
+run = "./gradlew :db:taskaround:flyway:flywayMigrate"
+run_windows = "gradlew.bat :db:taskaround:flyway:flywayMigrate"
